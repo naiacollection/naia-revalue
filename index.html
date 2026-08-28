@@ -121,19 +121,6 @@
   @media(max-width:560px){ .process-grid{grid-template-columns:1fr;} }
 
   /* ---------- PRIMA/DOPO ---------- */
-  .beforeafter{padding:0 0 140px;}
-  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative;}
-  .ba-panel{position:relative;aspect-ratio:4/3;overflow:hidden;}
-  .ba-panel img{width:100%;height:100%;object-fit:cover;}
-  .ba-panel.before img{filter:grayscale(0.55) brightness(0.92);}
-  .ba-label{position:absolute;top:24px;left:24px;z-index:2;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;padding:8px 16px;background:var(--ink);color:var(--cream);}
-  .ba-panel.after .ba-label{background:var(--gold);color:#fff;}
-  .ba-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cream);transform:translateX(-1px);z-index:3;}
-  .ba-caption{background:var(--ink);color:var(--cream);padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:50px;}
-  .ba-caption .eyebrow{color:var(--gold);margin-bottom:20px;display:block;}
-  .ba-caption h2{font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.28;margin-bottom:0;}
-  .ba-caption p{color:rgba(244,239,230,0.75);line-height:1.75;font-size:0.94rem;margin:0 0 26px;}
-  @media(max-width:900px){.ba-grid{grid-template-columns:1fr;}.ba-divider{display:none;}.ba-caption{grid-template-columns:1fr;padding:50px 30px;gap:26px;}}
 
   /* ---------- NUMBERS ---------- */
   .numbers{padding:110px 0;background:var(--cream-2);}
@@ -256,30 +243,6 @@
         <h3>Presentazione</h3>
         <p>Shooting professionale e passaggio di consegne all'ecosistema NAIA per la promozione e la gestione.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="beforeafter reveal" id="lavori">
-  <div class="ba-grid">
-    <div class="ba-panel before">
-      <img src="editorial.jpg" alt="Proprietà prima della valorizzazione">
-      <span class="ba-label">Prima</span>
-    </div>
-    <div class="ba-panel after">
-      <img src="cta.jpg" alt="Proprietà dopo la valorizzazione">
-      <span class="ba-label">Dopo</span>
-    </div>
-    <div class="ba-divider"></div>
-  </div>
-  <div class="ba-caption">
-    <div>
-      <span class="eyebrow">I nostri progetti</span>
-      <h2>Ogni intervento parla la lingua del territorio.</h2>
-    </div>
-    <div>
-      <p>Lavoriamo su proprietà nella stessa area in cui operano le altre divisioni NAIA, per garantire continuità tra valorizzazione, promozione e gestione: un unico standard, dall'inizio alla fine.</p>
-      <a href="#contatti" class="btn btn-light">Parliamo del tuo progetto</a>
     </div>
   </div>
 </section>
