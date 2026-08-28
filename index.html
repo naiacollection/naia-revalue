@@ -13,7 +13,7 @@
     --ink-soft:#3a3733;
     --cream:#f4efe6;
     --cream-2:#ece4d4;
-    --gold:#b8935a;
+    --gold:#b25d3d;
     --line:rgba(20,19,17,0.14);
     --line-inv:rgba(244,239,230,0.22);
   }
@@ -39,44 +39,50 @@
   header.site-nav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     display:flex;align-items:center;justify-content:space-between;
-    padding:22px 40px;color:#fff;
-    transition:background .3s ease, padding .3s ease;
+    padding:22px 40px;color:var(--ink);
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    transition:padding .3s ease;
   }
-  header.site-nav.scrolled{ background:rgba(20,19,17,0.92); padding:14px 40px; backdrop-filter:blur(6px); }
+  header.site-nav.scrolled{ padding:14px 40px; }
   .logo-lockup{display:flex;align-items:center;gap:10px;}
   .logo-mark{height:26px;width:auto;}
-  .logo-word{font-family:'Didot','Instrument Serif',Georgia,serif;font-size:1.15rem;letter-spacing:0.03em;color:#fff;}
+  .logo-word{font-family:'Didot','Instrument Serif',Georgia,serif;font-size:1.15rem;letter-spacing:0.03em;color:var(--ink);}
   .logo-word em{font-style:italic;color:var(--gold);}
+  footer .logo-word{color:var(--cream);}
   footer .logo-mark{height:30px;}
   footer .logo-word{font-size:1.3rem;}
   .nav-links{display:flex;gap:34px;align-items:center;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;}
-  .nav-links a{opacity:0.9;transition:opacity .2s;}
+  .nav-links a{opacity:0.75;transition:opacity .2s;color:var(--ink);}
   .nav-links a:hover{opacity:1;border-bottom:1px solid var(--gold);}
   .nav-right{display:flex;align-items:center;gap:22px;}
   .nav-login{
     display:flex;align-items:center;gap:6px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
-    border:1px solid rgba(255,255,255,0.4);padding:8px 16px;transition:all .2s ease;
+    border:1px solid var(--ink);color:var(--ink);padding:8px 16px;transition:all .2s ease;
   }
-  .nav-login:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+  .nav-login:hover{background:var(--ink);color:var(--cream);}
   .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
-  .nav-burger span{width:22px;height:1px;background:#fff;display:block;}
+  .nav-burger span{width:22px;height:1px;background:var(--ink);display:block;}
   @media(max-width:900px){ .nav-links{display:none;} .nav-burger{display:flex;} }
 
-  /* ---------- HERO ---------- */
-  .hero{ position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;background:#000;overflow:hidden; }
-  .hero img{ position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.72; }
-  .hero::after{ content:"";position:absolute;inset:0; background:linear-gradient(180deg, rgba(10,10,8,0.15) 0%, rgba(10,10,8,0.15) 40%, rgba(10,10,8,0.85) 100%); }
-  .hero-content{position:relative;z-index:2;color:#fff;padding:0 0 90px;width:100%;}
+  /* ---------- HERO (split atelier layout) ---------- */
+  .hero{ position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:var(--cream);overflow:hidden; }
+  .hero-media{position:relative;height:100%;min-height:480px;overflow:hidden;}
+  .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,19,17,0.05) 0%, rgba(20,19,17,0.35) 100%);}
+  .hero-content{position:relative;z-index:2;color:var(--ink);padding:160px 64px 70px;display:flex;flex-direction:column;justify-content:center;}
   .hero-content .eyebrow{color:var(--gold);}
-  .hero-content h1{ font-size:clamp(2.4rem,5.4vw,4.6rem); line-height:1.08; max-width:17ch; margin:20px 0 26px; }
+  .hero-content h1{ font-size:clamp(2.1rem,3.6vw,3.4rem); line-height:1.14; max-width:15ch; margin:20px 0 26px; }
   .hero-content h1 em{font-style:italic;color:var(--gold);}
-  .hero-content p{ font-size:1.02rem;max-width:44ch;line-height:1.6;color:rgba(255,255,255,0.85);margin:0 0 34px; }
+  .hero-content p{ font-size:1rem;max-width:42ch;line-height:1.65;color:var(--ink-soft);margin:0 0 34px; }
   .btn{ display:inline-flex;align-items:center;gap:10px;border:1px solid currentColor;padding:14px 30px; font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;transition:all .25s ease; }
+  .btn-dark{color:var(--ink);align-self:flex-start;}
+  .btn-dark:hover{background:var(--ink);color:var(--cream);}
   .btn-light{color:#fff;}
   .btn-light:hover{background:#fff;color:var(--ink);}
-  .scroll-cue{ position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:#fff;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase; display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0.75;z-index:2; }
-  .scroll-cue::after{content:"";width:1px;height:34px;background:rgba(255,255,255,0.6);animation:scrolldown 1.8s infinite;}
-  @keyframes scrolldown{0%{opacity:0;transform:scaleY(0.2);transform-origin:top;}50%{opacity:1;transform:scaleY(1);transform-origin:top;}100%{opacity:0;transform:scaleY(0.2);transform-origin:bottom;}}
+  .hero-tag{position:absolute;left:64px;bottom:40px;z-index:2;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:10px;}
+  .hero-tag::before{content:"";width:34px;height:1px;background:var(--gold);}
+  @media(max-width:900px){ .hero{grid-template-columns:1fr;} .hero-media{min-height:340px;order:-1;} .hero-content{padding:48px 28px 60px;} .hero-tag{display:none;} }
 
   /* ---------- STATEMENT ---------- */
   .statement{padding:150px 0;text-align:center;}
@@ -114,15 +120,20 @@
   @media(max-width:900px){ .process-grid{grid-template-columns:1fr 1fr;row-gap:36px;} }
   @media(max-width:560px){ .process-grid{grid-template-columns:1fr;} }
 
-  /* ---------- EDITORIAL ---------- */
-  .editorial{padding:0 0 140px;}
-  .ed-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2px;}
-  .ed-grid img{width:100%;height:100%;object-fit:cover;}
-  .ed-text{background:var(--ink);color:var(--cream);padding:60px;display:flex;flex-direction:column;justify-content:center;}
-  .ed-text .eyebrow{color:var(--gold);margin-bottom:20px;}
-  .ed-text h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.25;margin-bottom:22px;}
-  .ed-text p{color:rgba(244,239,230,0.75);line-height:1.7;font-size:0.94rem;margin-bottom:30px;}
-  @media(max-width:900px){.ed-grid{grid-template-columns:1fr;}.ed-text{padding:50px 30px;}}
+  /* ---------- PRIMA/DOPO ---------- */
+  .beforeafter{padding:0 0 140px;}
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative;}
+  .ba-panel{position:relative;aspect-ratio:4/3;overflow:hidden;}
+  .ba-panel img{width:100%;height:100%;object-fit:cover;}
+  .ba-panel.before img{filter:grayscale(0.55) brightness(0.92);}
+  .ba-label{position:absolute;top:24px;left:24px;z-index:2;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;padding:8px 16px;background:var(--ink);color:var(--cream);}
+  .ba-panel.after .ba-label{background:var(--gold);color:#fff;}
+  .ba-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cream);transform:translateX(-1px);z-index:3;}
+  .ba-caption{background:var(--ink);color:var(--cream);padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .ba-caption .eyebrow{color:var(--gold);margin-bottom:20px;display:block;}
+  .ba-caption h2{font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.28;margin-bottom:0;}
+  .ba-caption p{color:rgba(244,239,230,0.75);line-height:1.75;font-size:0.94rem;margin:0 0 26px;}
+  @media(max-width:900px){.ba-grid{grid-template-columns:1fr;}.ba-divider{display:none;}.ba-caption{grid-template-columns:1fr;padding:50px 30px;gap:26px;}}
 
   /* ---------- NUMBERS ---------- */
   .numbers{padding:110px 0;background:var(--cream-2);}
@@ -169,14 +180,16 @@
 </header>
 
 <section class="hero" id="top">
-  <img src="hero.jpg" alt="Ristrutturazione di una villa in Toscana">
-  <div class="hero-content wrap">
+  <div class="hero-content">
     <span class="eyebrow">Valorizzazione immobiliare</span>
     <h1>Ogni proprietà ha un <em>massimo potenziale</em>. Lo troviamo, insieme.</h1>
     <p>Progettazione, ristrutturazione e interior design pensati per una cosa sola: far rendere la tua proprietà al meglio, prima ancora che accolga il primo ospite.</p>
-    <a href="#contatti" class="btn btn-light">Richiedi una consulenza</a>
+    <a href="#contatti" class="btn btn-dark">Richiedi una consulenza</a>
   </div>
-  <div class="scroll-cue">Scorri</div>
+  <div class="hero-media">
+    <img src="hero.jpg" alt="Ristrutturazione di una villa in Toscana">
+  </div>
+  <span class="hero-tag">Progettazione — Toscana</span>
 </section>
 
 <section class="statement reveal">
@@ -247,14 +260,26 @@
   </div>
 </section>
 
-<section class="editorial reveal" id="lavori">
-  <div class="ed-grid">
-    <img src="editorial.jpg" alt="Progetto di valorizzazione completato">
-    <div class="ed-text">
+<section class="beforeafter reveal" id="lavori">
+  <div class="ba-grid">
+    <div class="ba-panel before">
+      <img src="editorial.jpg" alt="Proprietà prima della valorizzazione">
+      <span class="ba-label">Prima</span>
+    </div>
+    <div class="ba-panel after">
+      <img src="cta.jpg" alt="Proprietà dopo la valorizzazione">
+      <span class="ba-label">Dopo</span>
+    </div>
+    <div class="ba-divider"></div>
+  </div>
+  <div class="ba-caption">
+    <div>
       <span class="eyebrow">I nostri progetti</span>
       <h2>Ogni intervento parla la lingua del territorio.</h2>
+    </div>
+    <div>
       <p>Lavoriamo su proprietà nella stessa area in cui operano le altre divisioni NAIA, per garantire continuità tra valorizzazione, promozione e gestione: un unico standard, dall'inizio alla fine.</p>
-      <a href="#contatti" class="btn btn-light" style="color:var(--ink);border-color:var(--ink);align-self:flex-start;">Parliamo del tuo progetto</a>
+      <a href="#contatti" class="btn btn-light">Parliamo del tuo progetto</a>
     </div>
   </div>
 </section>
