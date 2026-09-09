@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://revalue.naiacollection.com/sitemap.xml
